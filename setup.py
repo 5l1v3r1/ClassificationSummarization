@@ -15,6 +15,6 @@ setup(
     py_modules = ['microdata'],
     scripts = ['microdata.py'],
     test_suite = 'test',
-    install_requires = ['html5lib>=0.999999999'],
+    install_requires = ['html5lib>=0.999999999', 'sklearn', 'sklearn'],
     **extra
 )

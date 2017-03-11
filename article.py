@@ -3,6 +3,8 @@ from gensim.summarization import summarize
 import microdata
 import urllib.request
 
+from category import Category
+
 
 class Article:
     'Common base class for all employees'
@@ -46,12 +48,11 @@ class Article:
         self.summary = summary
 
     def set_category(self, text):
-        summary = summarize(text, ratio=0.5)
-        self.summary = summary
+        cat = Category(text)
+        self.category = cat.get_category()
 
-    def get_category(self, text):
-        category = summarize(text, ratio=0.5)
-        self.category = category
+    def get_category(self):
+        return self.category
 
 
     def set_thumbnailUrl(self, url):
