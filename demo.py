@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from article import Article
 
 
@@ -22,12 +22,13 @@ from article import Article
 #a = Article(url)
 
 
-url = "http://www.ensonhaber.com/tuncay-ozkan-fetullah-gulen-senin-derini-yuzecegim-dedi-2017-03-11.html"
-#url = "http://edition.cnn.com/2017/03/11/asia/south-korea-park-geun-hye-protests/index.html"
+#url = "http://www.ensonhaber.com/tuncay-ozkan-fetullah-gulen-senin-derini-yuzecegim-dedi-2017-03-11.html"
+url = "http://edition.cnn.com/2017/03/11/asia/south-korea-park-geun-hye-protests/index.html"
 
 article1 = Article(url)
 article1.download()
-article1.displayUrl()
-article1.get_title()
-article1.get_text()
-#article1.displayJson()
+print(article1.displayUrl())
+print(article1.get_title())
+print(article1.get_text())
+print(article1.get_thumbnailUrl())
+#print(article1.displayJson())
