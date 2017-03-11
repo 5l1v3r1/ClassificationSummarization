@@ -1,6 +1,6 @@
 /news/
 .idea
-__pycache__
+.__pycache__
 .idea/misc.xml
 .idea/modules.xml
 .idea/newsProjec.iml
