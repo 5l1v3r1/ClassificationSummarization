@@ -32,6 +32,7 @@ class Article:
         self.set_text(item.articleBody)
         self.set_title(item.alternativeHeadline)
         self.set_thumbnailUrl(item.thumbnailUrl)
+        self.set_summary(item.articleBody)
         self.json = item.json()
 
     def set_text(self, text):
@@ -41,13 +42,13 @@ class Article:
         self.title = text.strip()
 
     def set_summary(self, text):
-        summary = summarize(text, ratio=0.25)
+        summary = summarize(text, ratio=0.1)
         self.summary = summary
 
     def set_thumbnailUrl(self, url):
         self.thumbnailUrl = url
 
-    def get_summary(self, summary):
+    def get_summary(self):
         return self.summary
 
     def get_text(self):
