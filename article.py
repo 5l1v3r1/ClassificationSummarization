@@ -15,8 +15,11 @@ class Article:
         self.text = u''
         self.title = u''
         self.summary = u''
+        self.category = u''
+
         self.thumbnailUrl = u''
         self.json = {}
+
         Article.articleCount += 1
 
     def displayCount(self):
@@ -47,8 +50,8 @@ class Article:
         summary = summarize(text, ratio=0.5)
         self.summary = summary
 
-    def set_category(self, text):
-        cat = Category(text)
+    def set_category(self):
+        cat = Category(self.text)
         self.category = cat.get_category()
 
     def get_category(self):
