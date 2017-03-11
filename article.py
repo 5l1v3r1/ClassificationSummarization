@@ -42,8 +42,17 @@ class Article:
         self.title = text.strip()
 
     def set_summary(self, text):
-        summary = summarize(text, ratio=0.1)
+        summary = summarize(text, ratio=0.5)
         self.summary = summary
+
+    def set_category(self, text):
+        summary = summarize(text, ratio=0.5)
+        self.summary = summary
+
+    def get_category(self, text):
+        category = summarize(text, ratio=0.5)
+        self.category = category
+
 
     def set_thumbnailUrl(self, url):
         self.thumbnailUrl = url
