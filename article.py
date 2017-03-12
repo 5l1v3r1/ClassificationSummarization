@@ -6,6 +6,7 @@ import urllib.request
 from mysolr import Solr
 import requests
 from category import Category
+import pysolr
 
 
 class Article:
@@ -70,8 +71,7 @@ class Article:
         return self.summary
 
     def get_json(self):
-        document = [
-            {
+        document = {
                 'url': self.url,
                 'category': self.get_category(),
                 'image': self.get_thumbnailUrl(),
@@ -79,15 +79,14 @@ class Article:
                 'text':self.get_text(),
                 'summary':self.get_summary()
             }
-        ]
+
         return document
 
 
     def update_solr(self):
-        #session = requests.Session()
-        solr = Solr('http://localhost:8983/solr/article')
-        solr.update(self.get_json(), 'json', commit=False)
-        solr.commit()
+        solr = pysolr.Solr('http://localhost:8983/solr/', timeout=10)
+        solr.add(self.get_json())
+
 
     def get_text(self):
         return self.text
