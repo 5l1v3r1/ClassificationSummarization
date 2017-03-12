@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+
 from gensim.summarization import summarize
 import microdata
 import urllib.request
-
+from mysolr import Solr
+import requests
 from category import Category
 
 
@@ -10,12 +12,14 @@ class Article:
     'Common base class for all employees'
     articleCount = 0
 
-    def __init__(self, url):
-        self.url = url
+    def __init__(self):
+        self.url = u''
         self.text = u''
         self.title = u''
         self.summary = u''
         self.category = u''
+        self.articleJson = {}
+
 
         self.thumbnailUrl = u''
         self.json = {}
@@ -31,7 +35,8 @@ class Article:
     def displayJson(self):
         return self.json
 
-    def download(self):
+    def download(self,url):
+        self.url = url
         items = microdata.get_items(urllib.request.urlopen(self.url))
         item = items[0]
         self.set_text(item.articleBody)
@@ -63,6 +68,26 @@ class Article:
 
     def get_summary(self):
         return self.summary
+
+    def get_json(self):
+        document = [
+            {
+                'url': self.url,
+                'category': self.get_category(),
+                'image': self.get_thumbnailUrl(),
+                'title': self.get_title(),
+                'text':self.get_text(),
+                'summary':self.get_summary()
+            }
+        ]
+        return document
+
+
+    def update_solr(self):
+        #session = requests.Session()
+        solr = Solr('http://localhost:8983/solr/article')
+        solr.update(self.get_json(), 'json', commit=False)
+        solr.commit()
 
     def get_text(self):
         return self.text

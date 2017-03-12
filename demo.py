@@ -26,8 +26,8 @@ from article import Article
 url='http://www.ensonhaber.com/cumhuriyetin-yayinladigi-referandum-anketi-2017-03-11.html'
 #url = "http://edition.cnn.com/2017/03/11/asia/south-korea-park-geun-hye-protests/index.html"
 
-article1 = Article(url)
-article1.download()
+article1 = Article()
+article1.download(url)
 article1.set_category()
 print(article1.displayUrl())
 print(article1.get_title())
@@ -35,4 +35,6 @@ print(article1.get_title())
 print(article1.get_thumbnailUrl())
 print(article1.get_summary())
 print(article1.get_category())
+print(article1.get_json())
+#print(article1.update_solr())
 #print(article1.displayJson())
