@@ -71,22 +71,21 @@ class Article:
         return self.summary
 
     def get_json(self):
-        document = {
+        document = [{
                 'url': self.url,
                 'category': self.get_category(),
                 'image': self.get_thumbnailUrl(),
                 'title': self.get_title(),
                 'text':self.get_text(),
                 'summary':self.get_summary()
-            }
+            }]
 
         return document
 
 
     def update_solr(self):
-        solr = pysolr.Solr('http://localhost:8983/solr/', timeout=10)
+        solr = pysolr.Solr('http://localhost:8983/solr/article', timeout=10)
         solr.add(self.get_json())
-
 
     def get_text(self):
         return self.text

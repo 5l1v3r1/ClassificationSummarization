@@ -23,7 +23,7 @@ from article import Article
 
 
 #url = "http://www.haberturk.com/ekonomi/is-yasam/haber/1339299-gumruk-birligi-anlasmasi-guncelleniyor"
-url='http://www.ensonhaber.com/cumhuriyetin-yayinladigi-referandum-anketi-2017-03-11.html'
+url='http://www.ensonhaber.com/abdde-bitcoinin-borsa-basvurusu-reddedildi-2017-03-11.html'
 #url = "http://edition.cnn.com/2017/03/11/asia/south-korea-park-geun-hye-protests/index.html"
 
 article1 = Article()
@@ -36,5 +36,5 @@ print(article1.get_thumbnailUrl())
 print(article1.get_summary())
 print(article1.get_category())
 print(article1.get_json())
-#print(article1.update_solr())
-#print(article1.displayJson())
+print(article1.update_solr())
+print(article1.displayJson())
