@@ -23,7 +23,7 @@ from article import Article
 
 
 #url = "http://www.haberturk.com/ekonomi/is-yasam/haber/1339299-gumruk-birligi-anlasmasi-guncelleniyor"
-url='http://www.ensonhaber.com/abdde-bitcoinin-borsa-basvurusu-reddedildi-2017-03-11.html'
+url='http://www.ensonhaber.com/luks-yattan-86-siginmaci-cikti-2017-03-13.html'
 #url = "http://edition.cnn.com/2017/03/11/asia/south-korea-park-geun-hye-protests/index.html"
 
 article1 = Article()

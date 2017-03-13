@@ -50,7 +50,7 @@ class Article:
         self.text = text.strip()
 
     def set_title(self, text):
-        self.title = text.strip()
+        self.title = text
 
     def set_summary(self, text):
         summary = summarize(text, ratio=0.5)
