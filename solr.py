@@ -16,7 +16,11 @@ solr = pysolr.Solr('http://localhost:8983/solr/article', timeout=10)
     },
 ])'''
 
+
+
 solr.delete(id='doc_1')
 solr.delete(id='doc_2')
 solr.delete(id='doc_3')
 solr.delete(id='doc_4')
+
+

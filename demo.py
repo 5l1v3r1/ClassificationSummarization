@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from article import Articles
 from article import Article
 
 
@@ -28,13 +29,22 @@ url='http://www.ensonhaber.com/luks-yattan-86-siginmaci-cikti-2017-03-13.html'
 
 article1 = Article()
 article1.download(url)
+article1.nlp()
 article1.set_category()
-print(article1.displayUrl())
-print(article1.get_title())
+#print(article1.displayUrl())
+#print(article1.get_title())
 #print(article1.get_text())
-print(article1.get_thumbnailUrl())
+#print(article1.get_thumbnailUrl())
+
+#print(article1.get_category())
+#print(article1.get_json())
+#print(article1.update_solr())
+#print(article1.displayJson())
 print(article1.get_summary())
-print(article1.get_category())
-print(article1.get_json())
-print(article1.update_solr())
-print(article1.displayJson())
+
+
+#article2 = Articles()
+#article2.add_adricle(url)
+#dat=article2.search('lüks')
+#for d in dat:
+#    print(d)

@@ -7,7 +7,11 @@ from mysolr import Solr
 import requests
 from category import Category
 import pysolr
+import nlp
 
+
+class ArticleException(Exception):
+    pass
 
 class Article:
     'Common base class for all employees'
@@ -52,9 +56,36 @@ class Article:
     def set_title(self, text):
         self.title = text
 
-    def set_summary(self, text):
+    def set_summary(self, summary):
+        """Summary here refers to a paragraph of text from the
+        title text and body text
+        """
+        self.summary = summary[:5000]
+
+    def set_summary2(self, text):
         summary = summarize(text, ratio=0.5)
         self.summary = summary
+
+    def set_keywords(self, keywords):
+        """Keys are stored in list format
+        """
+        if not isinstance(keywords, list):
+            raise Exception("Keyword input must be list!")
+        if keywords:
+            self.keywords = keywords[:10]
+
+    def nlp(self):
+        text_keyws = list(nlp.keywords(self.text).keys())
+        title_keyws = list(nlp.keywords(self.title).keys())
+        keyws = list(set(title_keyws + text_keyws))
+        self.set_keywords(keyws)
+
+        max_sents = 5
+
+        summary_sents = nlp.summarize(title=self.title, text=self.text, max_sents=max_sents)
+        summary = '\n'.join(summary_sents)
+        self.set_summary(summary)
+
 
     def set_category(self):
         cat = Category(self.text)
@@ -83,10 +114,6 @@ class Article:
         return document
 
 
-    def update_solr(self):
-        solr = pysolr.Solr('http://localhost:8983/solr/article', timeout=10)
-        solr.add(self.get_json())
-
     def get_text(self):
         return self.text
 
@@ -95,3 +122,23 @@ class Article:
 
     def get_thumbnailUrl(self):
         return self.thumbnailUrl
+
+
+class Articles:
+    def __init__(self):
+        self.solr = pysolr.Solr('http://localhost:8983/solr/article', timeout=10)
+        self.adricle=[]
+    def add_adricle(self,url):
+        article = Article()
+        article.download(url)
+        article.set_category()
+        self.update_solr(article.get_json())
+        return article.get_json()
+
+    def update_solr(self,json):
+        self.solr.add(json)
+
+    def search(self,str):
+        results = self.solr.search(str)
+        return results
+
