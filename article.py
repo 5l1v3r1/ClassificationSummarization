@@ -47,7 +47,7 @@ class Article:
         self.set_text(item.articleBody)
         self.set_title(item.alternativeHeadline)
         self.set_thumbnailUrl(item.thumbnailUrl)
-        self.set_summary(item.articleBody)
+        #self.set_summary(item.articleBody)
         self.json = item.json()
 
     def set_text(self, text):
@@ -56,11 +56,7 @@ class Article:
     def set_title(self, text):
         self.title = text
 
-    def set_summary(self, summary):
-        """Summary here refers to a paragraph of text from the
-        title text and body text
-        """
-        self.summary = summary[:5000]
+
 
     def set_summary2(self, text):
         summary = summarize(text, ratio=0.5)
@@ -74,22 +70,24 @@ class Article:
         if keywords:
             self.keywords = keywords[:10]
 
-    def nlp(self):
-        text_keyws = list(nlp.keywords(self.text).keys())
-        title_keyws = list(nlp.keywords(self.title).keys())
-        keyws = list(set(title_keyws + text_keyws))
-        self.set_keywords(keyws)
-
+    def set_summary(self):
         max_sents = 5
-
         summary_sents = nlp.summarize(title=self.title, text=self.text, max_sents=max_sents)
         summary = '\n'.join(summary_sents)
-        self.set_summary(summary)
+
+        self.summary = summary
+
+
+    def get_summary(self):
+        return self.summary[:5000]
 
 
     def set_category(self):
         cat = Category(self.text)
         self.category = cat.get_category()
+
+
+
 
     def get_category(self):
         return self.category
@@ -97,9 +95,6 @@ class Article:
 
     def set_thumbnailUrl(self, url):
         self.thumbnailUrl = url
-
-    def get_summary(self):
-        return self.summary
 
     def get_json(self):
         document = [{

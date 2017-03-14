@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
-"""
-Anything natural language related should be abstracted into this file.
-"""
-__title__ = 'newspaper'
-__author__ = 'Lucas Ou-Yang'
-__license__ = 'MIT'
-__copyright__ = 'Copyright 2014, Lucas Ou-Yang'
-
+import os
 import re
 import math
 
 from collections import Counter
 
-import settings
 
-with open(settings.NLP_STOPWORDS_EN, 'r') as f:
+
+PARENT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+NLP_STOPWORDS_TR = os.path.join(
+    PARENT_DIRECTORY, 'resources/misc/stopwords-nlp-tr.txt')
+
+
+with open(NLP_STOPWORDS_TR, 'r') as f:
     stopwords = set([w.strip() for w in f.readlines()])
 
 ideal = 20.0
@@ -137,7 +135,7 @@ def split_sentences(text):
     """Split a large string into sentences
     """
     import nltk.data
-    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+    tokenizer = nltk.data.load('tokenizers/punkt/turkish.pickle')
 
     sentences = tokenizer.tokenize(text)
     sentences = [x.replace('\n', '') for x in sentences if len(x) > 10]
@@ -161,9 +159,6 @@ def title_score(title, sentence):
 
 
 def sentence_position(i, size):
-    """Different sentence positions indicate different
-    probability of being an important sentence.
-    """
     normalized = i * 1.0 / size
     if (normalized > 1.0):
         return 0
