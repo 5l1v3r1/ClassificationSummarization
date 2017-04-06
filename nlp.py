@@ -88,8 +88,6 @@ def dbs(words, keywords):
 
 
 def split_words(text):
-    """Split a string into array of words
-    """
     try:
         text = re.sub(r'[^\w ]', '', text)  # strip special chars
         return [x.strip('.').lower() for x in text.split()]
@@ -98,14 +96,8 @@ def split_words(text):
 
 
 def keywords(text):
-    """Get the top 10 keywords and their frequency scores ignores blacklisted
-    words in stopwords, counts the number of occurrences of each word, and
-    sorts them in reverse natural order (so descending) by number of
-    occurrences.
-    """
     NUM_KEYWORDS = 10
     text = split_words(text)
-    # of words before removing blacklist words
     if text:
         num_words = len(text)
         text = [x for x in text if x not in stopwords]

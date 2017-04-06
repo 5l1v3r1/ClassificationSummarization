@@ -8,13 +8,12 @@ import requests
 from category import Category
 import pysolr
 import nlp
-
+import json
 
 class ArticleException(Exception):
     pass
 
 class Article:
-    'Common base class for all employees'
     articleCount = 0
 
     def __init__(self):
@@ -63,8 +62,6 @@ class Article:
         self.summary = summary
 
     def set_keywords(self, keywords):
-        """Keys are stored in list format
-        """
         if not isinstance(keywords, list):
             raise Exception("Keyword input must be list!")
         if keywords:
@@ -74,7 +71,6 @@ class Article:
         max_sents = 5
         summary_sents = nlp.summarize(title=self.title, text=self.text, max_sents=max_sents)
         summary = '\n'.join(summary_sents)
-
         self.summary = summary
 
 
@@ -106,7 +102,7 @@ class Article:
                 'summary':self.get_summary()
             }]
 
-        return document
+        return json.dumps(document)
 
 
     def get_text(self):
