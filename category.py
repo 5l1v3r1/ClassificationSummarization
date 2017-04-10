@@ -33,7 +33,7 @@ class Category:
     def set_category(self):
         news_train = base.load_files("news")
 
-        self.categories = ['dunya', 'ekonomi', 'kultur-sanat', 'magazin', 'planet', 'saglik', 'siyaset', 'spor',
+        self.categories = ['dunya', 'ekonomi', 'kultur-sanat', 'magazin', 'saglik', 'siyaset', 'spor',
                            'teknoloji', 'turkiye', 'yasam']
 
         text_clf = Pipeline([('vect', CountVectorizer()),
