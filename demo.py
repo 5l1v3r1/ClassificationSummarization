@@ -29,7 +29,7 @@ import json
 #url='http://www.ensonhaber.com/luks-yattan-86-siginmaci-cikti-2017-03-13.html'
 url='http://www.ensonhaber.com/hollandada-turklerin-denk-partisinden-onemli-basari-2017-03-16.html'
 #url = "http://edition.cnn.com/2017/03/11/asia/south-korea-park-geun-hye-protests/index.html"
-'''
+
 article1 = Article()
 article1.download(url)
 article1.set_summary()
@@ -64,4 +64,4 @@ for l in list:
 
 print(json.dumps(data))
 
-
+'''
