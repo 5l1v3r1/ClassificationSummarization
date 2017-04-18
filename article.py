@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from gensim.summarization import summarize
-import microdata
+import json
 import urllib.request
-from mysolr import Solr
+
+import microdata
+import nlp
+import pysolr
 import requests
 from category import Category
-import pysolr
-import nlp
-import json
+from gensim.summarization import summarize
+from mysolr import Solr
+
+
 
 class ArticleException(Exception):
     pass
@@ -23,12 +26,20 @@ class Article:
         self.summary = u''
         self.category = u''
         self.articleJson = {}
+        self.solr = pysolr.Solr('http://localhost:8983/solr/article', timeout=10)
 
 
         self.thumbnailUrl = u''
         self.json = {}
 
         Article.articleCount += 1
+
+
+    def addUrl(self,Url):
+        self.download(Url)
+        self.set_summary()
+        self.set_category()
+        self.add_solr()
 
     def displayCount(self):
         return Article.articleCount
@@ -54,7 +65,6 @@ class Article:
 
     def set_title(self, text):
         self.title = text
-
 
 
     def set_summary2(self, text):
@@ -83,7 +93,8 @@ class Article:
         self.category = cat.get_category()
 
 
-
+    def add_solr(self):
+        self.solr.add(self.get_json)
 
     def get_category(self):
         return self.category
@@ -122,9 +133,17 @@ class Articles:
     def add_adricle(self,url):
         article = Article()
         article.download(url)
+        article.set_summary()
         article.set_category()
         self.update_solr(article.get_json())
-        return article.get_json()
+
+        result = {'title': article.get_title(),
+                  'text': article.get_text(),
+                  'category': article.get_category(),
+                  'thumbnail': article.get_thumbnailUrl(),
+                  'summary': article.get_summary()
+                  }
+        return result
 
     def update_solr(self,json):
         self.solr.add(json)
