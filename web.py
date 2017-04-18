@@ -51,7 +51,7 @@ def searchResult():
 
         #encoded = jwt.encode(result, 'secret', algorithm='HS256')
         #return json.dumps(encoded.decode(encoding="utf-8"))
-
+        #
 
         return render_template("searchresult.html",result = result_response)
 
