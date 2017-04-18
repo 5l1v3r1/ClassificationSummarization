@@ -5,7 +5,7 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 '''
-categories = ['dunya', 'ekonomi', 'kultur-sanat', 'magazin', 'planet', 'saglik', 'siyaset', 'spor', 'teknoloji',
+categories = ['dunya', 'ekonomi', 'kultur-sanat', 'magazin', 'planet1', 'saglik', 'siyaset', 'spor', 'teknoloji',
               'turkiye', 'yasam']
 news_train = base.load_files("news")
 data = open("1.txt").read()
