@@ -24,14 +24,39 @@
       </div>
 
       <div class="jumbotron">
-        <h1> Add News</h1>
+        <h1>News Search</h1>
                  <form action = "http://localhost:5000/result" method = "POST">
-         <p><input type = "text" name = "Url" /><input type = "submit" class="btn btn-lg btn-success" value = "Search" /></p>
-
+         <p>Url <input type = "text" name = "Url" /></p>
+         <p><input type = "submit" class="btn btn-lg btn-success" value = "submit" /></p>
       </form>
       </div>
 
+      <div class="row marketing">
+       <div class="col-lg-4">
+        <table class="table">
+            {% for key, value in result %}
 
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+
+         {% endfor %}
+      </table>
+        </div>
+        <div class="col-lg-8">
+        <table class="table">
+            {% for key, value in result %}
+
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+
+         {% endfor %}
+      </table>
+        </div>
+      </div>
 
       <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>
