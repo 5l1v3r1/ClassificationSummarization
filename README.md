@@ -10,11 +10,13 @@ The aim of this project is automatic categorization & summarization of Turkish n
 - [x] Semantic normalization
 - [x] Feature Vector Generation
 - [x] Generate Summarization
+- [x] Web Application Development
 
  
 ##Usage
-  -
-        
+```
+python3 web.py
+``` 
 ##Requirements
 
   - Internet Connection
