@@ -4,10 +4,6 @@
 
 The aim of this project is automatic categorization & summarization of Turkish news.
 
-
-Database : <br>
-Tools : <br>
-
 ##STEPS
 - [x] Collect Data
 - [x] Syntax normalization and cleanup
