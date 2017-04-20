@@ -24,4 +24,7 @@ python3 web.py
 ##Team Members 
 
   * [Şenol Akkaş] (https://github.com/senolakkas)
+  * [Slide] (https://senolakkas.github.io/Automatic-categorization-and-summarization-of-news/)
+
+
 
