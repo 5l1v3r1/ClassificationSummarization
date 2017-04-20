@@ -2,7 +2,7 @@
 
 ## Project Details
 
-The aim of this project is automatic categorization & summarization of Turkish news
+The aim of this project is automatic categorization & summarization of Turkish news.
 
 
 Database : <br>
@@ -10,10 +10,10 @@ Tools : <br>
 
 ##STEPS
 - [x] Collect Data
-- [x] Cleaning Data
-- [x] Normalization
-- [x] Train text
-- [ ] Find the quality of the product
+- [x] Syntax normalization and cleanup
+- [x] Semantic normalization
+- [x] Feature Vector Generation
+- [x] Generate Summarization
 
  
 ##Usage
