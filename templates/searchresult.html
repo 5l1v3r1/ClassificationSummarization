@@ -34,27 +34,12 @@
       <div class="row marketing">
                   <div class="col-lg-4">
         <table class="table">
-            {% for key in result %}
-            <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><a href="{{ key['url'][0] }}">{{ key['title'][0] }}</a></div>
-  <div class="panel-body">
-    <p>Category:{{ key['category'][0] }}</p>
-  </div>
 
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item"><img src="{{ key['image'][0] }}"></li>
-    <li class="list-group-item">{{ key['text'][0] }}</li>
-    <li class="list-group-item">{{ key['summary'][0] }}</li>
-  </ul>
-</div>
-         {% endfor %}
 
 
       </table>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-12">
         <table class="table">
             {% for key in result %}
             <div class="panel panel-default">
