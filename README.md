@@ -5,14 +5,13 @@
 The aim of this project is automatic categorization & summarization of Turkish news.
 
 ##STEPS
-- [x] Collect Data
-- [x] Syntax normalization and cleanup
-- [x] Semantic normalization
-- [x] Feature Vector Generation
+- [x] Data collection
 - [x] Generate Summarization
+- [x] Data preprocessing
+- [x] Text Classification
+- [x] Querying the scraped data
 - [x] Web Application Development
 
- 
 ##Usage
 ```
 python3 web.py
