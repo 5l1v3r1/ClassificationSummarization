@@ -1,4 +1,4 @@
-# Proje Adı:
+# Proje Adı
 Kısaca
 # Proje Rumuzu
 snlakks03
@@ -11,7 +11,7 @@ Bilgisayar Mühendisliği
 
 Haber içerikleri tek bir uygulama altında kullanıcılar ile buluşturarak bilgiye erişimi daha kolay hale getirmeyi amaçlamıştır.
 
-# Projenin Özeti:
+# Projenin Özeti
 
 Yerli ve yabancı haber ajansları Türkiye için günlük ortalama 5400 haber üretmektedir. Bu bilgi yığınında en uygun haber içeriğine ulaşmak oldukça zaman almaktadır.
 
