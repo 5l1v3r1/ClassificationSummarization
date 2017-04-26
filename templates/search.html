@@ -27,17 +27,19 @@
         <h1>Search News</h1>
                  <form action = "http://localhost:5000/searchresult" method = "POST">
          <p><input type = "text" name = "Url" />
-             <select>
-          <option>dunya</option>
+             <select name = "Category">
+          <option>spor</option>
+          <option>siyaset</option>
           <option>ekonomi</option>
+          <option>turkiye</option>
+          <option>dunya</option>
           <option>kultur-sanat</option>
           <option>saglik</option>
-          <option>siyaset</option>
-          <option>spor</option>
-          <option>teknoloji</option>
-          <option>turkiye</option>
+          <option>magazin</option>
           <option>yasam</option>
-        </select><input type = "submit" class="btn btn-lg btn-success" value = "Search" /></p>
+          <option>teknoloji</option>
+        </select>
+             <input type = "submit" class="btn btn-lg btn-success" value = "Search" /></p>
 
          <p></p>
       </form>
