@@ -60,7 +60,11 @@ def result2(category=None,page=1):
        #encoded = j_data.encode()
        #result = json.loads(search_resp.read().encode())
        #return render_template("result2.html",result =result['facet_counts']['facet_fields']['category'])
-       return render_template("searchresult2.html",cat =b['facet_counts']['facet_fields']['category'],haber=b['response']['docs'],page=page,category=category)
+       if category is None:
+            return render_template("searchresult3.html",cat =b['facet_counts']['facet_fields']['category'],haber=b['response']['docs'],page=page)
+       else:
+           return render_template("searchresult2.html", cat=b['facet_counts']['facet_fields']['category'],
+                                  haber=b['response']['docs'], page=page, category=category)
        #return str(page)
 @app.route('/search')
 def search():
