@@ -34,6 +34,7 @@ def result():
 @app.route('/result2',methods = ['POST', 'GET'])
 @app.route('/result2/<category>',defaults={'page': 1})
 @app.route('/result2/<category>/<int:page>')
+@app.route('/result2/<int:page>')
 def result2(category=None,page=1):
    if request.method == 'POST':
        #__CORE_NAME__ = 'article'
@@ -51,8 +52,6 @@ def result2(category=None,page=1):
        search_url = "http://localhost:8983/solr/haberler/select?facet.field=category&facet=on&indent=on&q=*:*&rows=10&start={0}&wt=json".format(str(sayfa))
        if category !=None:
            search_url+='&fq=category:'+category
-
-
        r = requests.get(search_url)
        j_data = r.text
        b = json.loads(j_data)
