@@ -36,12 +36,21 @@ class Category:
         self.categories = ['dunya', 'ekonomi', 'kultur-sanat', 'magazin', 'saglik', 'siyaset', 'spor',
                            'teknoloji', 'turkiye', 'yasam']
 
-        text_clf = Pipeline([('vect', CountVectorizer()),
+        '''text_clf = Pipeline([('vect', CountVectorizer()),
         ('tfidf', TfidfTransformer()),
         ('clf', SGDClassifier(loss='hinge', penalty='l2',
 
                                           alpha = 1e-3, n_iter = 5, random_state = 42)),
-        ])
+        ])'''
+
+        text_clf = Pipeline([('vect', CountVectorizer()),
+                             ('tfidf', TfidfTransformer()),
+                             ('clf', SGDClassifier(loss='hinge', penalty='l2',
+
+                                                   alpha=1e-3, n_iter=5, random_state=42)),
+                             ])
+
+
         parameters = {'vect__ngram_range': [(1, 1), (1, 2)],
                       'tfidf__use_idf': (True, False),
                       'clf__alpha': (1e-2, 1e-3)}
@@ -50,6 +59,7 @@ class Category:
         gs_clf = gs_clf.fit(news_train.data[:1000], news_train.target[:1000])
 
         self.category=news_train.target_names[gs_clf.predict([self.data])[0]]
+        #self.category=int(news_train.target_names[gs_clf.predict([self.data])])
 
     def get_category(self):
         return self.category

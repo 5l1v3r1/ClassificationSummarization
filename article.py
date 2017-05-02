@@ -41,6 +41,14 @@ class Article:
         self.set_category()
         self.add_solr()
 
+    def addText(self,Text):
+        #self.download(Url)
+        self.set_text(Text)
+        #self.set_summary()
+        self.set_category()
+        #self.add_solr()
+
+
     def displayCount(self):
         return Article.articleCount
 

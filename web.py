@@ -16,20 +16,19 @@ def student():
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
    if request.method == 'POST':
-        Url = request.form['Url']
+        Text = request.form['Text']
         article = Article()
-        article.download(Url)
-        article.set_summary()
-        article.set_category()
-        print(article.get_thumbnailUrl())
+        article.addText(Text)
+        #article.download(Url)
+        #article.set_summary()
+        #article.set_category()
+        #print(article.get_thumbnailUrl())
 
-        result = {'title': article.get_title(),
+        result = {
                   'text': article.get_text(),
-                  'category': article.get_category(),
-                  'thumbnail': article.get_thumbnailUrl(),
-                  'summary': article.get_summary()
+                  'category': article.get_category()
                   }
-        return render_template("result.html",result = result)
+        return render_template("result3.html",result = result)
 
 @app.route('/result2',methods = ['POST', 'GET'])
 @app.route('/result2/<category>',defaults={'page': 1})
