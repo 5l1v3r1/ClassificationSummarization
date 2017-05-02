@@ -51,9 +51,9 @@ gs_clf = GridSearchCV(text_clf, parameters, n_jobs=-1)
 
 gs_clf = gs_clf.fit(trainetme_train.data[:1000], trainetme_train.target[:1000])
 data = open("1.txt").read()
-#print(trainetme_train.target_names[gs_clf.predict([data])[0]])
+print(trainetme_train.target_names[gs_clf.predict([data])[0]])
 
-print(trainetme_train.target_names[gs_clf.predict([data])])
+#print(trainetme_train.target_names[gs_clf.predict([data])])
 
 predicted = text_clf.predict(trainetme_train)
 sonuc=np.mean(predicted == data)
