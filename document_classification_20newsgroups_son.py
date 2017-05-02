@@ -125,8 +125,8 @@ data_train = fetch_20newsgroups(subset='train', categories=categories,
 data_test = fetch_20newsgroups(subset='test', categories=categories,
                                shuffle=True, random_state=42,
                                remove=remove)"""
-data_train=base.load_files("kalbur/veri/news")
-data_test=base.load_files("kalbur/veri/test")
+data_train=base.load_files("news")
+data_test=base.load_files("news")
 data = data_train
 
 
