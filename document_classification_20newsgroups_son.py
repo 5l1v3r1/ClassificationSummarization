@@ -107,7 +107,7 @@ if opts.all_categories:
     categories = None
 else:
     categories = [
- 'dunya','ekonomi','kultur-sanat','magazin','planet','saglik','siyaset','spor','teknoloji','turkiye','yasam'
+ 'dunya','ekonomi','kultur-sanat','magazin','saglik','siyaset','spor','teknoloji'
     ]
 
 if opts.filtered:
@@ -126,7 +126,7 @@ data_test = fetch_20newsgroups(subset='test', categories=categories,
                                shuffle=True, random_state=42,
                                remove=remove)"""
 data_train=base.load_files("news")
-data_test=base.load_files("news")
+data_test=base.load_files("test")
 data = data_train
 
 
