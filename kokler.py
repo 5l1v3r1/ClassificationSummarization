@@ -144,9 +144,9 @@ if __name__ == "__main__":
     metin = '''
     MERHABAlar. merhaba dunya
     '''
-    dir = '/Users/senolakkas/Documents/newsgitlab/news'
+    dir = '/home/diablo/Documents/ClassificationSummarization/test/'
     print(listele(dir))
     # liste = set(kelimelerine_ayir(metin))
-    # liste = kelimelerine_ayir(metin)
+    # liste = kelimelerine_ayir(met/home/diablo/Documents/ClassificationSummarization/in)/home/diablo/Documents/ClassificationSummarization/
 
     # print(liste)
