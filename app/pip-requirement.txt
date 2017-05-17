@@ -1,0 +1,9 @@
+uwsgi 
+flask
+sklearn
+
+requests
+urllib3
+pysolr
+microdata
+
