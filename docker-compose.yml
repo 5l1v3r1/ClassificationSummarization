@@ -1,0 +1,50 @@
+web:
+  restart: always
+  build: ./web
+  expose:
+    - "8000"
+  links:
+    - solr:solr
+  volumes:
+    - /usr/src/app/static
+  env_file: .env
+  command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
+
+nginx:
+  restart: always
+  build: ./nginx/
+  ports:
+    - "80:80"
+  volumes:
+    - /www/static
+  volumes_from:
+    - web
+  links:
+    - web:web
+
+data:
+  image: postgres:latest
+  volumes:
+    - /var/lib/postgresql
+  command: "true"
+
+postgres:
+  restart: always
+  image: postgres:latest
+  volumes_from:
+    - data
+  ports:
+    - "5432:5432"
+
+
+solr:
+   restart: always
+   build: ./solr/
+   ports:
+    - "8983:8983"
+   volumes:
+     - data:/opt/solr/server/solr/mycores
+   entrypoint:
+     - docker-entrypoint.sh
+     - solr-precreate
+     - haberler
