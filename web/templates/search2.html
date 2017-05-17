@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Home</a></li>
+            <li role="presentation"><a href="/search">Search</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">News</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Search News</h1>
+                 <form action = "http://localhost:5000/searchresult" method = "POST">
+         <p><input type = "text" name = "Url" />
+             <select>
+          <option>dunya</option>
+          <option>ekonomi</option>
+          <option>kultur-sanat</option>
+          <option>saglik</option>
+          <option>siyaset</option>
+          <option>spor</option>
+          <option>teknoloji</option>
+          <option>turkiye</option>
+          <option>yasam</option>
+        </select><input type = "submit" class="btn btn-lg btn-success" value = "Search" /></p>
+
+         <p></p>
+      </form>
+      </div>
+
+
+
+      <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+   </body>
+</html>
+
