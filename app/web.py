@@ -1,11 +1,9 @@
-from flask import Flask, render_template, request, jsonify
-from article import Article
-import pysolr
 import json
-import urllib.request
 import urllib
-import jwt
 import requests
+import urllib.request
+from flask import Flask, render_template, request
+from article import Article
 
 app = Flask(__name__)
 
@@ -64,6 +62,8 @@ def result2(category=None,page=1):
            return render_template("searchresult2.html", cat=b['facet_counts']['facet_fields']['category'],
                                   haber=b['response']['docs'], page=page, category=category)
        #return str(page)
+
+
 @app.route('/search')
 def search():
    return render_template('search.html')
@@ -108,5 +108,5 @@ def searchResult2():
         #return result_response
         return render_template("searchresult2.html",result = result_response)
 
-if __name__ == '__main__':
-   app.run(debug = True)
+if __name__ == "__main__":
+    app.run(debug = True, host = '0.0.0.0')

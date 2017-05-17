@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import json
+
+import pysolr
 import urllib.request
+from gensim.summarization import summarize
 
 import microdata
 import nlp
-import pysolr
-import requests
 from category import Category
-from gensim.summarization import summarize
-from mysolr import Solr
-
 
 
 class ArticleException(Exception):
