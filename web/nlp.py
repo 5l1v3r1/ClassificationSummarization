@@ -23,6 +23,7 @@ def summarize(url='', title='', text='', max_sents=5):
         return []
     summaries = []
 
+
     sentences = split_sentences(text)
     keys = keywords(text)
     titleWords = split_words(title)
