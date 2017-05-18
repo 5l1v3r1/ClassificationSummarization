@@ -13,6 +13,7 @@ api = Api(app)
 __CORE_NAME__ = "article"
 
 
+
 class Search(Resource):
     def get(self, str):
         search_term = str.replace(' ', "+")
