@@ -21,8 +21,6 @@ ideal = 20.0
 def summarize(url='', title='', text='', max_sents=5):
     if not text or max_sents <= 0:
         return []
-
-
     summaries = []
     sentences = split_sentences(text)
     keys = keywords(text)
