@@ -16,7 +16,6 @@ __CORE_NAME__ = "article"
 
 class Search(Resource):
     def get(self, str):
-
         search_term = str.replace(' ', "+")
         search_url = "http://localhost:8983/solr/{0}/select?q={1}&wt=json&indent=true".format(__CORE_NAME__,search_term)
         search_resp = urllib.request.urlopen(search_url)
